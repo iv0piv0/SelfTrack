@@ -31,7 +31,7 @@ global class CertificateController {
             String reqBody = RestContext.request.requestBody.toString();
             CRTrequest req = (CRTrequest) JSON.deserialize(reqBody, CRTrequest.class);
 
-            if (req.merchantId != null) {
+            if (String.isNotBlank(req.merchantId)) {
                 List<Case> cases = [
                     SELECT Id,
                            Certification_Log__c,
